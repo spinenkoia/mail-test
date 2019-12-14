@@ -8,9 +8,7 @@ from backend.handlers.convert import ConvertHandler
 from backend.handlers.database import DatabaseHandler
 from backend.currencies import Currencies
 
-PROG_NAME = 'content-filter-backend'
-
-log = logging.getLogger(PROG_NAME)
+log = logging.getLogger(__name__)
 
 handlers = [
     view('/convert', ConvertHandler),
