@@ -24,4 +24,4 @@ RUN pip install convertator*.tar.gz
 
 EXPOSE 8080
 
-ENTRYPOINT ["convertator", "--debug"]
+ENTRYPOINT ["convertator"]
