@@ -22,4 +22,6 @@ RUN pip3 install --no-cache -r requirements.txt
 COPY --from=build /build/convertator*.tar.gz .
 RUN pip install convertator*.tar.gz
 
-ENTRYPOINT ["convertator"]
+EXPOSE 8080
+
+ENTRYPOINT ["convertator", "--debug"]

@@ -20,12 +20,9 @@ TODO
 
 * Возможно если в БД ничего нет, нужно залить туда данные по умолчанию.
 * Стоит разнести на отдельные запросы merge=1 и merge=0.
-* Сделал еще Dockerfile, но нужно еще compose тогда, не успел немного.
-* Замокать клиент redis в тестах.
 
 
 Запуск
 ======
 
-* nosetests -v tests/
-* python3 -m backend.main
+* docker-compose up --build

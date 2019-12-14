@@ -1,3 +1,5 @@
+import fakeredis
+
 from aiohttp.test_utils import AioHTTPTestCase
 from aiohttp.web import Application
 
@@ -18,6 +20,6 @@ class TestBaseHandler(AioHTTPTestCase):
         app = Application()
 
         app.router.add_routes(handlers)
-        app['currencies'] = Currencies()
+        app['currencies'] = Currencies(fakeredis.FakeStrictRedis)
 
         return app

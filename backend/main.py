@@ -1,4 +1,5 @@
 import logging
+import redis
 
 from argparse import ArgumentParser
 
@@ -41,7 +42,7 @@ def main():
     application.router.add_routes(handlers)
 
     async def on_startup(app: Application):
-        app['currencies'] = Currencies()
+        app['currencies'] = Currencies(redis.Redis)
 
     async def on_cleanup(app: Application):
         app['currencies'].close()
@@ -51,7 +52,7 @@ def main():
 
     log.info('Run backend.')
 
-    run_app(application, host='127.0.0.1', port=8080)
+    run_app(application, host='0.0.0.0', port=8080)
 
     log.info('Shutdown.')
 

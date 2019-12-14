@@ -1,10 +1,9 @@
-import redis
-
 from typing import Dict
 
+
 class Currencies:
-    def __init__(self):
-        self.__client = redis.Redis('localhost', 6379, charset="utf-8", decode_responses=True)
+    def __init__(self, redis_cls):
+        self.__client = redis_cls('redis', 6379, charset="utf-8", decode_responses=True)
 
     def close(self):
         self.__client.close()
